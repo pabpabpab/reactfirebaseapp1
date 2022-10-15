@@ -1,0 +1,179 @@
+=font($size,$color,$weight)
+  font-size: $size
+  color: $color
+  font-weight: $weight
+
+.messenger-app
+  width: 100vw
+  height: 100vh
+  background: #a59977
+  display: grid
+  grid-template-areas: "add-contact profile" "contacts messages" "contacts input"
+  grid-template-rows: 100px 1fr 85px
+  grid-template-columns: 1.15fr 2.85fr
+  grid-gap: 0
+
+
+.add-contact
+  background: #d0d0d0
+  width: 100%
+  padding: 10px 15px
+  box-sizing: border-box
+  grid-area: add-contact
+
+  display: grid
+  grid-template-rows: 1fr
+  grid-template-columns: 50px 1fr
+  grid-gap: 0
+  align-self: center
+
+.contacts
+  background: #d4ead4
+  padding: 20px 25px
+  grid-area: contacts
+  overflow-y: auto
+
+.profile
+  background: #b6bacd
+  height: 100%
+  padding: 0 15px
+  grid-area: profile
+  //display: grid
+  //align-self: center
+  display: flex
+  align-items: center
+
+
+.messages
+  background: #f1f2f7
+  padding: 20px 25px
+  grid-area: messages
+  overflow-y: auto
+
+.input
+  background: #a59977
+  padding: 10px 15px
+  grid-area: input
+
+  display: grid
+  grid-template-rows: 1fr
+  grid-template-columns: 1fr 70px
+  grid-gap: 0
+  align-self: center
+
+.input__text
+  padding: 15px 20px
+  +font(18px, #000, 400)
+  outline: none
+  border: none
+
+.input__button
+  background-color: #527712
+  +font(16px, #fff, 400)
+  cursor: pointer
+  outline: none
+  border: none
+
+.message-item
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 20px 25px
+  +font(18px, #000, 400)
+  &__delete-button
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 20px
+    width: 20px
+    background: #acd4ac
+    +font(12px, #000, 600)
+    outline: none
+    cursor: pointer
+    border: none
+    &:hover
+      background: #8fbf8f
+
+.no-messages
+  padding: 20px 25px
+  +font(18px, #686868, 400)
+  text-align: center
+
+
+
+.contact-item
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 0
+  +font(18px, #000, 600)
+  transition: background-color .3s
+  &__delete-button
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 20px
+    width: 20px
+    background: #acd4ac
+    +font(12px, #000, 600)
+    outline: none
+    cursor: pointer
+    border: none
+    &:hover
+      background: #8fbf8f
+
+.link-inactive
+  display: block
+  padding: 20px 25px
+  +font(18px, #000, 700)
+  text-decoration: none
+  cursor: pointer
+  transition: background-color .3s
+  &:hover
+    background: #c1e0c1
+
+.link-active
+  display: block
+  background: #5a9442
+  padding: 20px 25px
+  +font(18px, #000, 700)
+  text-decoration: none
+  cursor: pointer
+
+
+.link-profile
+  display: flex
+  align-items: center
+  background: #b6bacd
+  padding: 15px 25px
+  +font(18px, #000, 700)
+  text-decoration: none
+  cursor: pointer
+
+.link-login
+  display: inline-block
+  background: #d0d3e0
+  padding: 15px 25px
+  border-radius: 4px
+  margin: 5px
+  +font(18px, #000, 400)
+  text-decoration: none
+
+.loading-screen
+  position: fixed
+  left: 0
+  top: 0
+  width: 100vw
+  height: 100vh
+  z-index: 9999
+
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+
+  background-color: #fff
+  +font(22px, #000, 700)
+
+.error
+  +font(22px, #f00, 300)
