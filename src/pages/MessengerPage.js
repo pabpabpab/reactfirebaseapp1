@@ -3,29 +3,23 @@ import { Route, Routes } from 'react-router-dom';
 import Contacts from '../components/Contacts';
 import Messages from '../components/Messages';
 import NoChat from '../components/NoChat';
-import InputContainer from '../components/InputContainer';
+import SaveMessage from '../components/SaveMessage';
 
 import ProfileTitle from '../components/ProfileTitle';
-import AddContact from '../components/AddContact';
-import LoadingComponent from '../components/LoadingComponent';
-
-
+import SaveChat from '../components/SaveChat';
 
 function MessengerPage() {
     return (
-        <>
-            <div className="messenger-app">
-                <AddContact/>
-                <Contacts/>
-                <ProfileTitle/>
-                <Routes>
-                    <Route index element={<NoChat/>}/>
-                    <Route path="chat/:chatId" element={<Messages/>}/>
-                </Routes>
-                <InputContainer/>
-            </div>
-            <LoadingComponent/>
-        </>
+        <div className="messenger-app">
+            <SaveChat/>
+            <Contacts/>
+            <ProfileTitle/>
+            <Routes>
+                <Route index element={<NoChat/>}/>
+                <Route path="chat/:chatId" element={<Messages/>}/>
+            </Routes>
+            <SaveMessage/>
+        </div>
     );
 }
 

@@ -1,4 +1,4 @@
-import {logoutError, logoutLoading, logoutSuccess} from '../actions';
+import {logoutError, logoutLoading, logoutSuccess} from '../actions/userActions';
 import {auth} from './../../service/firebase';
 
 export const initiateLogout = () => {

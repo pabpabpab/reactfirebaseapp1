@@ -1,9 +1,10 @@
 import React, {useMemo} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import {getOneContact} from '../redux/selectors';
+//import {getOneContact} from '../redux/selectors';
 import {useSelector} from 'react-redux';
 
 const ProfilePage = () => {
+    /*
     const { userId } = useParams();
 
     const getSelectedUser = useMemo(() => getOneContact(+userId), [userId]);
@@ -19,6 +20,12 @@ const ProfilePage = () => {
             <div>
                 { user ? `Профайл пользователя ${user.username}` : 'Пользователь не найден' }
             </div>
+        </div>
+    );
+     */
+
+    return (
+        <div>
         </div>
     );
 };

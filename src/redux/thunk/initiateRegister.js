@@ -1,4 +1,4 @@
-import {registerError, registerLoading, registerSuccess} from '../actions';
+import {registerError, registerLoading, registerSuccess} from '../actions/userActions';
 import {auth} from './../../service/firebase';
 
 export const initiateRegister = (email, password, displayName) => {

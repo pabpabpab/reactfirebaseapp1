@@ -1,45 +1,57 @@
-import React from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {initiateLogout} from "../redux/thunk/initiateLogout";
-import {Link, useNavigate} from 'react-router-dom';
+import React, {useState} from 'react';
+import {useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
 import {getUser} from '../redux/selectors';
+import Logout from "../components/Logout";
 
 const HomePage = () => {
-    const dispatch = useDispatch();
     const user = useSelector(getUser);
-    const navigate = useNavigate();
 
-
-    console.log('user at homepage', user);
-
+    const [startCountdown, setStartCountdown] = useState(0);
 
     const handleOut = () => {
-        if (user) {
-            dispatch(initiateLogout());
+        if (!user) {
+            return;
         }
-        setTimeout(() => {
-            navigate('/login');
-        }, 3000)
+        setStartCountdown(3);
     }
 
     return (
         <div>
             HomePage
+
             {!user &&
                 <div>
-                    <Link to={'/register'} className={'inline-block text-base text-black py-3 px-6 rounded bg-gray-300 m-1'}>Register</Link>
-                    <Link to={'/login'} className={'inline-block text-base text-black py-3 px-6 rounded bg-gray-300 m-1'}>Login</Link>
+                    <Link to={'/register'}
+                          className={'inline-block text-base text-black py-3 px-6 rounded bg-gray-300 m-1'}>
+                        Register
+                    </Link>
+                    <Link to={'/login'}
+                          className={'inline-block text-base text-black py-3 px-6 rounded bg-gray-300 m-1'}>
+                        Login
+                    </Link>
                 </div>
             }
+
             {user &&
             <div>
+                <div className="my-5">
+                    {`${user.displayName}, ${user.email}, uid = ${user.uid}`}
+                </div>
+
                 <Link to={'/messenger'}
-                      className={'inline-block text-base text-black py-3 px-6 rounded bg-gray-300 m-1'}>Messenger</Link>
+                      className={'inline-block text-base text-black py-3 px-6 rounded bg-gray-300 m-1'}>
+                    Messenger
+                </Link>
                 <button
                     onClick={handleOut}
-                    className={'inline-block text-base text-black py-3 px-6 rounded bg-gray-300 m-1'}>Logout</button>
+                    className={'inline-block text-base text-black py-3 px-6 rounded bg-gray-300 m-1'}>
+                    Logout
+                </button>
             </div>
             }
+
+            {startCountdown > 0 && <Logout startCountdown={startCountdown} />}
         </div>
     );
 }

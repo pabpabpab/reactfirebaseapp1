@@ -1,3 +1,31 @@
+import types from "../../data/constants";
+
+const initialState = {
+    editedMessage: {id: '', userId: '', username: '', body: ''}, // редактируемое сообщение
+    lastAction: '',
+};
+
+const messageReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case types.SET_EDITED_MESSAGE:
+            return {
+                ...state,
+                editedMessage: {...action.payload},
+            };
+        case types.RESET_EDITED_MESSAGE:
+            return {
+                ...state,
+                editedMessage: {},
+            };
+        default:
+            return state;
+    }
+}
+
+export default messageReducer;
+
+
+/*
 import appConst from '../../data/constants';
 import packMessagesIntoDepo from '../../functions/packMessagesIntoDepo';
 import addMsgIntoMap from './../../functions/addMsgIntoMap';
@@ -51,4 +79,6 @@ const messageReducer = (state = initialState, action) => {
 }
 
 export default messageReducer;
+
+ */
 
