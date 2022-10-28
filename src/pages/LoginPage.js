@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {initiateLogin} from '../redux/thunk/initiateLogin';
 import {useNavigate} from 'react-router-dom';
@@ -18,13 +18,7 @@ const LoginPage = () => {
         }
         dispatch(initiateLogin(email, password));
     };
-/*
-    useEffect(() => {
-        if (user) {
-            navigate('/');
-        }
-    }, [user]);
-*/
+
     return (
         <div className={'block px-10 py-7 bg-gray-300 rounded border-gray-400 text-base text-black w-1/2'}>
             <h2 className={'font-bold my-3'}>Login</h2>

@@ -1,3 +1,42 @@
+import React, {useEffect, useState} from 'react';
+// import addBotMessage from './../functions/addBotMessage';
+
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+
+import useGetEditedMessage from "../myHooks/useGetEditedMessage";
+import useSaveMessage from "../myHooks/useSaveMessage";
+
+const SaveMessage = () => {
+    const [messageBody, setMessageBody] = useState('');
+    const { editedMessage } = useGetEditedMessage(setMessageBody);
+    const { doSaveMessage } = useSaveMessage(messageBody, setMessageBody, editedMessage);
+
+    return (
+        <form onSubmit={doSaveMessage} className="input">
+            <TextField
+                value={messageBody}
+                onChange={(e) => setMessageBody(e.target.value)}
+                id="outlined-basic"
+                variant="outlined"
+                autoFocus
+                sx={{
+                    backgroundColor: '#fff',
+                }}/>
+            <Button
+                type="submit"
+                variant="contained"
+                size="small">
+                Send
+            </Button>
+        </form>
+    );
+};
+
+export default SaveMessage;
+
+
+/*
 import React, {useEffect} from 'react';
 import useInput from '../myHooks/useInput';
 import myData from '../data/myData';
@@ -12,6 +51,8 @@ const InputContainer = () => {
     const dispatch = useDispatch();
     const lastMsgId = useSelector(getLastMsgId);
     const correspondentId = useSelector(getCorrespondentId);
+
+     //const currentChatId = useSelector(getCurrentChatId,  (prev, next) => prev !== next);
 
     // объект textInput
     const textInput = useInput('');
@@ -54,3 +95,4 @@ const InputContainer = () => {
 };
 
 export default InputContainer;
+ */

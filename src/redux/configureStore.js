@@ -3,10 +3,8 @@ import {applyMiddleware, combineReducers, createStore} from 'redux';
 // import { persistStore, persistReducer } from 'redux-persist';
 // import storage from 'redux-persist/lib/storage'; // localStorage
 
-import contactReducer from './reducers/contactReducer';
+import chatReducer from './reducers/chatReducer';
 import messageReducer from './reducers/messageReducer';
-import flagReducer from './reducers/flagReducer';
-import errorReducer from './reducers/errorReducer';
 import userReducer from './reducers/userReducer';
 
 // создаем объект конфигурации для persist
@@ -18,10 +16,8 @@ const persistConfig = {
 */
 
 const rootReducer = combineReducers({
-    contacts: contactReducer,
+    chats: chatReducer,
     messages: messageReducer,
-    flag: flagReducer,
-    error: errorReducer,
     user: userReducer,
 });
 

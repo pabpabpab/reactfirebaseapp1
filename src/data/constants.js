@@ -1,15 +1,11 @@
 const appConst = {
-    SET_CORRESPONDENT_ID: 'setCorrespondentId',
+    SET_CURRENT_CHAT_ID: 'setCurrentChatId',
 
-    SET_ALL_CONTACTS: 'setAllContacts',
-    ADD_CONTACT: 'addContact',
-    DELETE_CONTACT: 'deleteContact',
+    SET_EDITED_CHAT: 'setEditedChat',
+    RESET_EDITED_CHAT: 'resetEditedChat',
 
-    SET_ALL_MESSAGES: 'setAllMessages',
-    ADD_MESSAGE: 'addMessage',
-    ADD_MESSAGE_BY_BOT: 'addMessageByBot',
-    DELETE_MESSAGE: 'deleteMessage',
-    DELETE_MESSAGES_BY_USER_ID: 'deleteMessagesByUserId',
+    SET_EDITED_MESSAGE: 'setEditedMessage',
+    RESET_EDITED_MESSAGE: 'resetEditedMessage',
 
     SET_LOADING_FLAG: 'setLoadingFlag',
     RESET_LOADING_FLAG: 'resetLoadingFlag',

@@ -1,3 +1,21 @@
+export function getCurrentChatId(state) {
+    return state.chats.currentChatId;
+}
+
+export function getEditedChat(state) {
+    return state.chats.editedChat;
+}
+
+export function getEditedMessage(state) {
+    return state.messages.editedMessage;
+}
+
+export function getUser(state) {
+    return state.user.currentUser;
+}
+
+
+/*
 export function getLoadingFlag(state) {
     return state.flag.loading;
 }
@@ -17,8 +35,8 @@ export function getOneContact(userId) {
     }
 }
 
-export function getCorrespondentId(state) {
-    return state.contacts.correspondentId;
+export function getCurrentChatId(state) {
+    return state.chats.currentChatId;
 }
 
 export function getLastAction(state) {
@@ -64,6 +82,7 @@ export function getMsgCount(state) {
 export function getUser(state) {
     return state.user.currentUser;
 }
+ */
 
 /*
 export function getChatById(correspondentId) {

@@ -1,4 +1,4 @@
-import types from './../data/constants';
+import types from '../../data/constants';
 
 export const registerLoading = () => ({
     type: types.REGISTER_LOADING
@@ -27,7 +27,6 @@ export const loginSuccess = (user) => ({
     type: types.LOGIN_SUCCESS,
     payload: user
 })
-
 
 export const logoutLoading = () => ({
     type: types.LOGOUT_LOADING

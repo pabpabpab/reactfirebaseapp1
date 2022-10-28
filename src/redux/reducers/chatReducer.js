@@ -1,42 +1,33 @@
 import types from '../../data/constants';
 
 const initialState = {
-    contacts: [],
-    correspondentId: 0, // текущий собеседник
+    currentChatId: '', // текущий чат
+    editedChat: {id: '', title: '', description: ''}, // редактируемый чат
 };
 
-const contactReducer = (state = initialState, action) => {
+const chatReducer = (state = initialState, action) => {
     switch (action.type) {
-        case types.SET_ALL_CONTACTS:
+        case types.SET_CURRENT_CHAT_ID:
             return {
                 ...state,
-                contacts: [...action.payload],
+                currentChatId: action.payload,
             };
-        case types.DELETE_CONTACT:
+        case types.SET_EDITED_CHAT:
             return {
                 ...state,
-                contacts: state.contacts.filter((item) => item.id !== action.payload),
+                editedChat: {...action.payload},
             };
-        case types.ADD_CONTACT:
-            const newContact = {
-                id: Date.now(),
-                username: action.payload,
-            };
+        case types.RESET_EDITED_CHAT:
             return {
                 ...state,
-                contacts: [...state.contacts, newContact]
-            };
-        case types.SET_CORRESPONDENT_ID:
-            return {
-                ...state,
-                correspondentId: action.payload,
+                editedChat: {id: '', title: '', description: ''},
             };
         default:
             return state;
     }
 }
 
-export default contactReducer;
+export default chatReducer;
 
 
 /*

@@ -1,4 +1,4 @@
-import {loginError, loginLoading, loginSuccess} from '../actions';
+import {loginError, loginLoading, loginSuccess} from '../actions/userActions';
 import {auth} from './../../service/firebase';
 
 export const initiateLogin = (email, password) => {
